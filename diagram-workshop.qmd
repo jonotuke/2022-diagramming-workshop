@@ -1,0 +1,115 @@
+---
+title: Diagramming workshop
+author: Jono Tuke
+date: today
+format: 
+  beamer:
+    self-contained: true
+  revealjs: default
+  html: 
+    self-contained: true
+    df-print: tibble
+editor_options: 
+  chunk_output_type: console
+execute: 
+  warning: false
+  message: false
+  echo: true
+---
+
+```{r}
+#| include: false
+pacman::p_load(tidyverse)
+```
+
+# Tikz
+
+## Example 1: Markov chain 1
+
+```{r}
+#| echo: false
+knitr::include_graphics("tikz/markov-chain-1.pdf")
+```
+
+## Example 2: Markov chain 2
+
+```{r}
+#| echo: false
+knitr::include_graphics("tikz/markov-chain-2.pdf")
+```
+
+## Example 3: Plate diagram
+
+```{r}
+#| echo: false
+knitr::include_graphics("tikz/plate-diagram.pdf")
+```
+
+## Tricks
+
+- TextExpander
+- Makefile
+
+## Omnigraffle
+
+- Connections
+- Magnets
+- LaTeXiT
+- Layouts
+- Exporting
+- Computer Modern
+
+## DiagrammeR
+
+<http://rich-iannone.github.io/DiagrammeR/graphviz_and_mermaid.html>
+
+```{r}
+pacman::p_load(DiagrammeR)
+```
+
+
+## TikzDevice
+
+```{r}
+pacman::p_load(tikzDevice)
+```
+
+## MPG plot
+
+```{r}
+tikz("tikz/mpg.tex", standAlone = TRUE)
+mpg |>
+  ggplot(aes(displ, cty, col = drv)) +
+  geom_point()
+dev.off()
+```
+
+## Input
+
+```{r}
+tikz("tex/mpg.tex", width = 4, height = 4,standAlone = FALSE)
+mpg |>
+  ggplot(aes(displ, cty, col = drv)) +
+  geom_point()
+dev.off()
+```
+
+## Maths
+
+```{r}
+tikz("tikz/mpg_annotated.tex", standAlone = TRUE)
+mpg |>
+  ggplot(aes(displ, cty, col = drv)) +
+  geom_point() +
+  geom_text(x = 5, y = 25,
+            label = "$y_i = \\beta_0 + \\beta_1x_i + \\epsilon_i$",
+            col = "black") +
+  labs(x = "Displacement ($m^3$)")
+dev.off()
+```
+
+
+
+
+
+
