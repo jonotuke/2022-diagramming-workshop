@@ -1,9 +1,17 @@
 \documentclass[tikz,border=5mm]{standalone}
-\usetikzlibrary{arrows, decorations.pathmorphing, backgrounds, positioning, fit, petri}
+\usetikzlibrary{
+	arrows, decorations.pathmorphing, 
+	backgrounds, positioning, 
+	fit, petri
+}
 \begin{document}
 
-\begin{tikzpicture}
-[state/.style={minimum size=1cm, circle,draw,font=\sffamily\large\bfseries}]
+\begin{tikzpicture}[
+state/.style={
+	minimum size=1cm, 
+	circle,draw,font=\sffamily\large\bfseries
+	}
+]
 
 % NODES
 \node [state] 	(0)  				{0};

@@ -1,8 +1,14 @@
 \documentclass[tikz,border=5mm]{standalone}
-\usetikzlibrary{arrows, decorations.pathmorphing, backgrounds, positioning, fit, petri}
+\usetikzlibrary{
+arrows, decorations.pathmorphing, 
+backgrounds, positioning, 
+fit, petri
+}
 \begin{document}
 
-\begin{tikzpicture}[state/.style={minimum size=1cm, 
+\begin{tikzpicture}[
+	state/.style={
+	minimum size=1cm, 
 	circle,draw,font=\sffamily\large\bfseries
 	}, 
 	node distance = 20mm
@@ -17,7 +23,7 @@
 \node [state]	(5) [right=of 4]		{5};
    
 % PATHS     
-\path [thick,shorten >=1pt,auto]
+\path [thick,shorten >= 1pt,auto]
 (0) edge [->, loop left]  node {1} (0)
 (5) edge [->, loop right]  node {1} (5)
 (1) edge [->, above] node {$1 - p$} (0)
