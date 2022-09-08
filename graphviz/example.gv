@@ -6,7 +6,7 @@ digraph boxes_and_circles {
   # several 'node' statements
   node [shape = box,
         fontname = Helvetica]
-  A; B; C; D; E; F
+  bob; B; C; D; E; F
 
   node [shape = circle,
         fixedsize = true,
